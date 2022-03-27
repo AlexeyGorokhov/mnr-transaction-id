@@ -3,3 +3,6 @@ node_modules
 *.log
 test
 Dockerfile
+.eslintrc.js
+.gitattributes
+.editorconfig

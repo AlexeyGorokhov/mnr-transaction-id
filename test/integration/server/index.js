@@ -9,9 +9,21 @@ const app = express();
 
 app.use(mnrTransactionId);
 
-app.get('/', (req, res) => {
+app.get('/', (_req, res) => {
   res.status(200).end();
 });
 
 const server = http.createServer(app);
-server.listen(5500);
+
+process.on('SIGINT', closeServer);
+process.on('SIGTERM', closeServer);
+
+try {
+  server.listen(5500);
+} catch (err) {
+  console.error(err);
+}
+
+function closeServer() {
+  server.close();
+}

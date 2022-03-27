@@ -4,7 +4,7 @@ Express middleware for tracking transactions in microservices architecture.
 
 ## You may not need it!
 
-This is a custom highly opinionated solution aimed at code reuse for a few private projects.
+This is a custom, highly opinionated solution aimed at code reuse for a few private projects.
 
 ## Installation
 
@@ -14,6 +14,7 @@ $ npm install --save mnr-transaction-id
 
 ## Usage Example
 
+JavaScript:
 ```javascript
 const mnrTransactionId = require('mnr-transaction-id');
 
@@ -21,7 +22,19 @@ const app = express();
 app.use(mnrTransactionId);
 
 app.get('/my-endpoint', (req, res) => {
-  // req.transactionId is available here
+  console.log(req.transactionId);
+});
+```
+
+TypeScript:
+```typescript
+import mnrTransactionId, { RequestWithTransactionId } from 'mnr-transaction-id';
+
+const app = express();
+app.use(mnrTransactionId);
+
+app.get('/my-endpoint', (req, res) => {
+  console.log((req as RequestWithTransactionId).transactionId);
 });
 ```
 

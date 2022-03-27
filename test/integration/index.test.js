@@ -9,7 +9,7 @@ const requestOpts = {
   method: 'GET',
   uri: 'http://localhost:5500',
   resolveWithFullResponse: true,
-  simple: false
+  simple: false,
 };
 
 test('request without transaction ID in header', async t => {
@@ -19,7 +19,7 @@ test('request without transaction ID in header', async t => {
     t.equal(
       response.headers[headerName] != null,
       true,
-      'should receive a newly generated transaction ID'
+      'should receive a newly generated transaction ID',
     );
 
     t.end();
@@ -34,14 +34,14 @@ test('request with transaction ID in header', async t => {
     const response = await request({
       ...requestOpts,
       headers: {
-        [headerName]: TRANSACTION_ID
-      }
+        [headerName]: TRANSACTION_ID,
+      },
     });
 
     t.equal(
       response.headers[headerName],
       TRANSACTION_ID,
-      'should receive the same transaction ID as was sent'
+      'should receive the same transaction ID as was sent',
     );
 
     t.end();
