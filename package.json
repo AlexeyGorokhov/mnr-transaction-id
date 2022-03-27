@@ -1,35 +1,21 @@
 {
   "name": "mnr-transaction-id",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Express middleware for tracking transactions in microservices architecture",
   "main": "index.js",
+  "types": "index.d.ts",
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=16.0.0"
   },
   "scripts": {
-    "test": "./node_modules/.bin/semistandard --verbose | ./node_modules/.bin/snazzy && ./node_modules/.bin/tape 'test/unit/**/*.test.js' | ./node_modules/.bin/tap-summary",
+    "test": "eslint ./ && tape 'test/unit/**/*.test.js' | tap-summary",
     "test:integration": "bash ./test/integration/run-tests.sh"
   },
   "author": {
     "name": "Alexey Gorokhov",
-    "email": "alexey.gorokhov@icloud.com",
-    "url": ""
+    "email": "alexey.gorokhov@icloud.com"
   },
   "license": "MIT",
-  "dependencies": {
-    "uuid": "^3.3.2"
-  },
-  "devDependencies": {
-    "express": "^4.16.3",
-    "proxyquire": "^2.1.0",
-    "request": "^2.88.0",
-    "request-promise-native": "^1.0.5",
-    "semistandard": "^12.0.0",
-    "sinon": "^6.1.5",
-    "snazzy": "^8.0.0",
-    "tap-summary": "^4.0.0",
-    "tape": "^4.4.0"
-  },
   "keywords": [
     "express",
     "transaction",
@@ -42,5 +28,21 @@
   },
   "bugs": {
     "url": "https://github.com/AlexeyGorokhov/mnr-transaction-id/issues"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.13"
+  },
+  "devDependencies": {
+    "eslint": "^8.12.0",
+    "express": "^4.16.3",
+    "proxyquire": "^2.1.0",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5",
+    "sinon": "^13.0.1",
+    "tap-summary": "^4.0.0",
+    "tape": "^5.5.2"
+  },
+  "peerDependencies": {
+    "express": ">=4.16"
   }
 }
