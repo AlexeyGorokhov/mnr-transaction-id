@@ -1,9 +1,7 @@
-'use strict';
+import http from 'node:http';
+import express from 'express';
 
-const http = require('http');
-const express = require('express');
-
-const mnrTransactionId = require('../../../index');
+import mnrTransactionId from '../../../src/index.js';
 
 const app = express();
 

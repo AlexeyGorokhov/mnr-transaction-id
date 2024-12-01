@@ -4,7 +4,7 @@ docker build -t mnr-transaction-id .
 
 docker run -d --name mnr-transaction-id -p 5500:5500 mnr-transaction-id
 
-./node_modules/.bin/tape 'test/integration/**/*.test.js' | ./node_modules/.bin/tap-summary
+./node_modules/.bin/jest './test/integration'
 
 docker exec mnr-transaction-id kill -SIGINT 1
 
