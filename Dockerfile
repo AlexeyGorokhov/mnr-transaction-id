@@ -1,4 +1,4 @@
-FROM node:16.13.0-alpine
+FROM node:20.18-alpine
 
 WORKDIR /app
 
@@ -6,8 +6,7 @@ COPY package*.json .npmrc ./
 
 RUN npm install
 
-COPY index.js ./
-COPY ./lib ./lib
-COPY ./test/integration/server ./test/integration/server
+COPY ./src ./src
+COPY ./test ./test
 
-CMD ["node", "./test/integration/server/index.js"]
+CMD ["npx", "tsx", "./test/integration/server/index.ts"]
